@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace VmbTest\Events;
 
 abstract class Event
 {

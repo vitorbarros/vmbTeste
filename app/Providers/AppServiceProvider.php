@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace VmbTest\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace VmbTest\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

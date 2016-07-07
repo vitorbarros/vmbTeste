@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace VmbTest\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use VmbTest\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

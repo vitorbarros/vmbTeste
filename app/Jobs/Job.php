@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace VmbTest\Jobs;
 
 use Illuminate\Bus\Queueable;
 
