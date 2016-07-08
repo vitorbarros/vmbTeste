@@ -18,5 +18,6 @@ Route::post('/login', array('as' => 'login.post', 'uses' => 'Auth\AuthController
 Route::group(array('prefix' => 'app', 'middleware' => 'auth.checkauth', 'as' => 'app.'), function () {
     Route::group(array('prefix' => 'sintegra', 'as' => 'sintegra.'), function () {
         Route::get('/', array('as' => 'index', 'uses' => 'SintegraController@index'));
+        Route::get('/consulta', array('as' => 'consulta', 'uses' => 'SintegraController@consulta'));
     });
 });

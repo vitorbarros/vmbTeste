@@ -220,18 +220,13 @@ return [
     */
     'generator'  => [
         'basePath'      => app_path(),
-        'rootNamespace' => 'App\\',
+        'rootNamespace' => 'VmbTest\\',
         'paths'         => [
             'models'       => 'Entities',
             'repositories' => 'Repositories',
             'interfaces'   => 'Repositories',
             'transformers' => 'Transformers',
             'presenters'   => 'Presenters',
-            'validators'   => 'Validators',
-            'controllers'  => 'Http/Controllers',
-            'provider'     => 'RepositoryServiceProvider',
-            'criteria'     => 'Criteria',
-            'stubsOverridePath' => app_path()
         ]
     ]
 ];

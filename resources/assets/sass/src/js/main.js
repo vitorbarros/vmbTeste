@@ -1,3 +1,14 @@
+$(document).ready(function(){
+    //configuração do menu lateral Client
+    var urlApp = window.location.pathname;
+    var reApp = /sintegra/g;
+    var mApp;
+
+    while ((mApp = reApp.exec(urlApp)) !== null){
+        $("#" + mApp).attr('class','active');
+    }
+});
+
 function auth() {
     var formData = new FormData($("#loginForm")[0]);
     $.ajax({

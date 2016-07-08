@@ -1,11 +1,14 @@
 <?php
-
 namespace VmbTest\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Sintegra extends Model
+class Sintegra extends Model implements Transformable
 {
+    use TransformableTrait;
+
     protected $fillable = array(
         'user_id',
         'cnpj',
@@ -17,3 +20,4 @@ class Sintegra extends Model
         return $this->belongsTo(User::class);
     }
 }
+

@@ -1,5 +1,16 @@
+$colorDefault: #f3f0f4;
+$borderColor: #DEE3E6;
+$fontColor: #524f5e;
+
+.header{
+  .navbar-default{
+    background-color: $colorDefault;
+    border-color: $borderColor;
+  }
+}
+
 .container-form {
-  border: 1px solid #DEE3E6;
+  border: 1px solid $borderColor;
   max-width: 500px;
   margin: 0 auto;
   background-color: #FFFFFF;
@@ -12,20 +23,149 @@
       color: #524f5e;
     }
     .btn-primary{
-      background-color: #f3f0f4;
-      color: #524f5e;
-      border: 1px solid #DEE3E6;
+      background-color: $colorDefault;
+      color: $fontColor;
+      border: 1px solid $borderColor;
     }
   }
   .title {
     text-align: center;
-    background-color: #F3F0F4;
-    border-bottom: 1px solid #DEE3E6;
+    background-color: $colorDefault;
+    border-bottom: 1px solid $borderColor;
     h3 {
-      color: #524f5e;
+      color: $fontColor;
       margin: 0;
       padding: 10px 0 10px 0;
       font-size: 20px;
+    }
+  }
+}
+
+.sintegra{
+  .container-sintegra{
+    border: 1px solid $borderColor;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    margin-top: 100px;
+    border-radius: 5px;
+    .title {
+      text-align: center;
+      background-color: $colorDefault;
+      border-bottom: 1px solid $borderColor;
+      h3 {
+        color: $fontColor;
+        margin: 0;
+        padding: 10px 0 10px 0;
+        font-size: 20px;
+      }
+    }
+    .table{
+      padding: 15px;
+      margin: 0;
+      table{
+        tbody,
+        thead{
+          tr{
+            td,
+            th{
+              color: $fontColor;
+            }
+          }
+        }
+      }
+    }
+    .pagination{
+      margin: 10px 0 10px 0;
+      padding: 0 15px 0 15px;
+    }
+    .btn-consulta{
+      a{
+        float: right;
+        margin: 10px 15px 0 0;
+      }
+    }
+    .form {
+      display: block;
+      padding: 15px;
+      label{
+        color: #524f5e;
+      }
+      .btn-primary{
+        background-color: $colorDefault;
+        color: $fontColor;
+        border: 1px solid $borderColor;
+      }
+    }
+  }
+}
+@media(max-width: 767px) {
+  .sintegra {
+    .container-sintegra {
+      .table{
+        padding: 5px;
+        table{
+          display: block;
+          thead{
+            display: block;
+            tr{
+              position: absolute;
+              top: -9999px;
+              left: -9999px;
+            }
+          }
+          tbody{
+            display: block;
+          }
+          th{
+            display: block;
+          }
+          td{
+            display: block;
+            &:nth-of-type(1):before{
+              content: "ID:";
+            }
+            &:nth-of-type(2){
+              &:before{
+                content: "CNPJ:";
+              }
+            }
+            &:nth-of-type(3){
+              &:before{
+                content: "Usuário:";
+              }
+            }
+            &:nth-of-type(4){
+              &:before{
+                content: "Data da consulta:";
+              }
+            }
+            &:nth-of-type(5){
+              &:before{
+                content: "Ação:";
+              }
+            }
+            &:before{
+              width: 45%;
+              padding-right: 10px;
+              white-space: nowrap;
+              color: black;
+              font-weight: bold;
+            }
+          }
+          tr{
+            display: block;
+          }
+        }
+      }
+      .pagination{
+        padding: 0 5px 0 5px;
+      }
+      .btn-consulta{
+        a{
+          margin: 10px 5px 0 0;
+        }
+      }
     }
   }
 }
