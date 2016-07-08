@@ -10,7 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//Authenticate route
+Route::get('/login', array('as' => 'login', 'uses' => 'Auth\AuthController@getLogin'));
+Route::post('/login', array('as' => 'login.post', 'uses' => 'Auth\AuthController@postLogin'));
 
-Route::get('/', function () {
-    return view('welcome');
+//Internal system routes
+Route::group(array('prefix' => 'app', 'middleware' => 'auth.checkauth', 'as' => 'app.'), function () {
+    Route::group(array('prefix' => 'sintegra', 'as' => 'sintegra.'), function () {
+        Route::get('/', array('as' => 'index', 'uses' => 'SintegraController@index'));
+    });
 });

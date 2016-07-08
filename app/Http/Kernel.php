@@ -3,6 +3,7 @@
 namespace VmbTest\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use VmbTest\Http\Middleware\CheckAuth;
 
 class Kernel extends HttpKernel
 {
@@ -29,5 +30,6 @@ class Kernel extends HttpKernel
         'auth' => \VmbTest\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \VmbTest\Http\Middleware\RedirectIfAuthenticated::class,
+        'auth.checkauth' => CheckAuth::class
     ];
 }

@@ -22,20 +22,22 @@ class User extends Model implements AuthenticatableContract,
      * @var string
      */
     protected $table = 'users';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = ['username', 'password'];
-
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+    /**
+     * @var string
+     */
+    protected $username = 'username';
 
     public function sintegras()
     {

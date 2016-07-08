@@ -1,16 +1,63 @@
-var elixir = require('laravel-elixir');
+var gulp = require('gulp');
+sass = require('gulp-sass');
+autoprefixer = require('gulp-autoprefixer');
+cssnano = require('gulp-cssnano');
+uglify = require('gulp-uglify');
+rename = require('gulp-rename');
+concat = require('gulp-concat');
+jshint = require('gulp-jshint');
+notify = require('gulp-notify');
+cache = require('gulp-cache');
+livereload = require('gulp-livereload');
+del = require('del');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
+// source and distribution folder
+var
+    source = 'resources/assets/sass/src/',
+    dest = 'public/assets/';
 
-elixir(function(mix) {
-    mix.sass('app.scss');
+// css source file: .scss files
+var css = {
+    in: source + 'css/app.scss',
+    out: dest + 'css/',
+    watch: source + 'css/**/*',
+    sassOpts: {
+        outputStyle: 'nested',
+        precison: 3,
+        errLogToConsole: true
+    }
+};
+
+// compile scss
+gulp.task('sass', function () {
+    return gulp.src(css.in)
+        .pipe(sass(css.sassOpts))
+        .pipe(cssnano())
+        .pipe(gulp.dest(css.out))
+        .pipe(notify({message: 'Ta compilado brow !'}))
+        .pipe(livereload());
 });
+
+gulp.task('scripts', function() {
+    return gulp.src(source + '/js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest(dest + 'js/'))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(uglify())
+        .pipe(gulp.dest(dest + 'js/'))
+        .pipe(notify({ message: 'Scripts task complete' }))
+});
+
+
+// Watch task
+gulp.task('watch', function () {
+    gulp.watch(css.in, ['sass']);
+    gulp.watch(source + '/js/*.js', ['scripts']);
+    livereload.listen();
+    gulp.watch(css.watch).on('change', livereload.changed);
+});
+
+// default task
+gulp.task('default', ['sass','watch']);

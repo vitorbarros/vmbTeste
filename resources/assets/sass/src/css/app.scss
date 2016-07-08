@@ -1,0 +1,31 @@
+.container-form {
+  border: 1px solid #DEE3E6;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  margin-top: 100px;
+  border-radius: 5px;
+  .form {
+    display: block;
+    padding: 15px;
+    label{
+      color: #524f5e;
+    }
+    .btn-primary{
+      background-color: #f3f0f4;
+      color: #524f5e;
+      border: 1px solid #DEE3E6;
+    }
+  }
+  .title {
+    text-align: center;
+    background-color: #F3F0F4;
+    border-bottom: 1px solid #DEE3E6;
+    h3 {
+      color: #524f5e;
+      margin: 0;
+      padding: 10px 0 10px 0;
+      font-size: 20px;
+    }
+  }
+}
