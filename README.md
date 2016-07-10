@@ -45,8 +45,8 @@
     1 - faça uma requisição do tipo POST para a seguinte rota localhost:8000/oauth/access_token com os seguintes parametros no header 'grant_type = password', 'client_id = appid01', 'client_secret = secret', 'username = admin', 'password = admin'.
     O retorno deverá ser:
     
-    `{
-  "access_token": "9z9cFIp2DtK8g8kKmeoYRIX4yxkxbSA5t8SGk1eI",
-  "token_type": "Bearer",
-  "expires_in": 3600
-}`
+  {
+    "access_token": "9z9cFIp2DtK8g8kKmeoYRIX4yxkxbSA5t8SGk1eI",
+    "token_type": "Bearer",
+    "expires_in": 3600
+  }
