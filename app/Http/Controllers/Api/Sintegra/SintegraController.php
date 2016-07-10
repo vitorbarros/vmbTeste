@@ -76,9 +76,21 @@ class SintegraController extends Controller
 
     public function store(SintegraRequest $request)
     {
+        $matches = array();
         try {
             $result = $this->service->sintegraRequest($request->get('cnpj'));
             $parsed = $this->parseService->resultParse($result);
+
+            $re = '#<\s*?input\b[^>]*>(.*?)/\b[^>]*>#s';
+            foreach ($parsed as $value) {
+                preg_match_all($re, $value, $matches);
+            }
+            if ((count($matches[0]) - 1) > 0) {
+                return response()->json(array(
+                    'messages' => "O CNPJ {$request->get('cnpj')} não consta em nossa base de dados"
+                ), 400);
+            }
+
             $filtered = $this->parseService->resultParsedFilter($parsed);
             $json = $this->parseService->toJson($filtered);
 
