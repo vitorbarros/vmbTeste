@@ -1,11 +1,8 @@
 <?php
 namespace VmbTest\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 use VmbTest\Http\Requests;
-use VmbTest\Http\Controllers\Controller;
 use VmbTest\Http\Requests\SintegraRequest;
 use VmbTest\Repositories\SintegraRepository;
 use VmbTest\Repositories\UserRepository;
@@ -79,9 +76,21 @@ class SintegraController extends Controller
      */
     public function sintegraRequest(SintegraRequest $request)
     {
+        $matches = array();
         try {
             $result = $this->service->sintegraRequest($request->get('cnpj'));
-            return $this->parseService->resultParse($result);
+            $parsed = $this->parseService->resultParse($result);
+
+            $re = '#<\s*?input\b[^>]*>(.*?)/\b[^>]*>#s';
+            foreach ($parsed as $value) {
+                preg_match_all($re, $value, $matches);
+            }
+            if ((count($matches[0]) - 1) > 0) {
+                return response()->json(array(
+                    'messages' => "O CNPJ {$request->get('cnpj')} não consta em nossa base de dados"
+                ), 400);
+            }
+            return $parsed;
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -107,7 +116,23 @@ class SintegraController extends Controller
 
             return $this->service->store($data);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json(array('messages' => $e->getMessage()), 400);
+        }
+    }
+
+    public function get($id)
+    {
+        if ($id) {
+            return $this->sintegraRepository->find($id, array('resultado_json'));
+        }
+    }
+
+    public function delete($id)
+    {
+        if ($id) {
+            if ($this->sintegraRepository->delete($id)) {
+                return response()->json(array("messages" => "success"));
+            }
         }
     }
 }

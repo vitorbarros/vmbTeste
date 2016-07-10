@@ -63,57 +63,59 @@ class ParseService
             $newString =
                 str_replace(";", "",
                     str_replace("&nbsp", "",
-                        str_replace(" ", "_", strtolower(preg_replace(array(
-                            "/(ç|Ç)/",
-                            "/(á|à|ã|â|ä)/",
-                            "/(Á|À|Ã|Â|Ä)/",
-                            "/(é|è|ê|ë)/",
-                            "/(É|È|Ê|Ë)/",
-                            "/(í|ì|î|ï)/",
-                            "/(Í|Ì|Î|Ï)/",
-                            "/(ó|ò|õ|ô|ö)/",
-                            "/(Ó|Ò|Õ|Ô|Ö)/",
-                            "/(ú|ù|û|ü)/",
-                            "/(Ú|Ù|Û|Ü)/",
-                            "/(ñ)/", "/(Ñ)/"
-                        ), explode(" ", "c a A e E i I o O u U n N"), $value)))));
+                        str_replace("&nbsp;", "",
+                            str_replace(" ", "_", strtolower(preg_replace(array(
+                                "/(ç|Ç)/",
+                                "/(á|à|ã|â|ä)/",
+                                "/(Á|À|Ã|Â|Ä)/",
+                                "/(é|è|ê|ë)/",
+                                "/(É|È|Ê|Ë)/",
+                                "/(í|ì|î|ï)/",
+                                "/(Í|Ì|Î|Ï)/",
+                                "/(ó|ò|õ|ô|ö)/",
+                                "/(Ó|Ò|Õ|Ô|Ö)/",
+                                "/(ú|ù|û|ü)/",
+                                "/(Ú|Ù|Û|Ü)/",
+                                "/(ñ)/",
+                                "/(Ñ)/"
+                            ), explode(' ', "c a A e E i I o O u U n N"), $value))))));
 
             switch ($newString) {
                 case "cadastro_atualizado_ate" :
-                    $arrayResult['dados_gerais']['data_cadastro'] = $result[$key + 1];
+                    $arrayResult['dados_gerais']['data_cadastro'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "cnpj" :
-                    $arrayResult['dados_gerais']['cnpj'] = $result[$key + 1];
+                    $arrayResult['dados_gerais']['cnpj'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "inscricao_estadual" :
-                    $arrayResult['dados_gerais']['inscricao_estadual'] = $result[$key + 1];
+                    $arrayResult['dados_gerais']['inscricao_estadual'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "razao_social" :
-                    $arrayResult['dados_gerais']['razao_social'] = $result[$key + 1];
+                    $arrayResult['dados_gerais']['razao_social'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "logradouro" :
-                    $arrayResult['endereco']['logradouro'] = $result[$key + 1];
+                    $arrayResult['endereco']['logradouro'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "numero" :
-                    $arrayResult['endereco']['numero'] = $result[$key + 1];
+                    $arrayResult['endereco']['numero'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "complemento" :
-                    $arrayResult['endereco']['complemento'] = $result[$key + 1];
+                    $arrayResult['endereco']['complemento'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "bairro" :
-                    $arrayResult['endereco']['bairro'] = $result[$key + 1];
+                    $arrayResult['endereco']['bairro'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "municipio" :
-                    $arrayResult['endereco']['municipio'] = $result[$key + 1];
+                    $arrayResult['endereco']['municipio'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "uf" :
-                    $arrayResult['endereco']['uf'] = $result[$key + 1];
+                    $arrayResult['endereco']['uf'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "cep" :
-                    $arrayResult['endereco']['cep'] = $result[$key + 1];
+                    $arrayResult['endereco']['cep'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
                 case "telefone" :
-                    $arrayResult['dados_gerais']['telefone'] = $result[$key + 1];
+                    $arrayResult['dados_gerais']['telefone'] = str_replace("&nbsp;", "", $result[$key + 1]);
                     break;
             }
         }

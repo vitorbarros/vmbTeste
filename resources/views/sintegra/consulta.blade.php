@@ -20,8 +20,9 @@
                                     <input type="text" id="cnpj" name="cnpj" class="form-control">
                                 </div>
                                 <div id="alert-consulta"></div>
-                                <div class="form-group">
-                                    <input type="submit" value="Consultar" class="btn btn-primary">
+                                <div class="form-group" id="consulta-content-btn">
+                                    <input type="submit" value="Consultar" class="btn btn-primary" id="consultar">
+                                    <a href="{{ route('app.sintegra.index') }}" class="btn btn-primary" style="display: none" id="retornanr">Retornar para a listagem</a>
                                 </div>
                             </form>
                         </div>
@@ -42,9 +43,9 @@
                 <div class="modal-body">
                     <div id="consulta-content"></div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
-                    <button type="button" class="btn btn-primary" onclick="salvarConsulta()">Salvar consulta</button>
+                <div class="modal-footer" id="consulta-modal">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="sair">Sair</button>
+                    <button type="button" class="btn btn-primary" onclick="salvarConsulta()" id="salvar-consulta">Salvar consulta</button>
                 </div>
             </div>
         </div>

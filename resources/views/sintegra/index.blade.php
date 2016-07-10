@@ -37,7 +37,10 @@
                                         <td>{{ $sintegra->cnpj }}</td>
                                         <td>{{ $sintegra->user->username }}</td>
                                         <td>{{ (new \DateTime($sintegra->created_at))->format('d/m/Y - H:i') }}</td>
-                                        <td>#</td>
+                                        <td>
+                                            <button class="btn btn-default" type="button" onclick="viewDetails('{{ $sintegra->id }}')">Ver detalhes</button> /
+                                            <button class="btn btn-default" type="button" onclick="deleteRow('{{ $sintegra->id }}')">Deletar</button>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -55,4 +58,23 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Detalhes</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="consulta-content"></div>
+                </div>
+                <div class="modal-footer" id="consulta-modal">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="sair">Sair</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="display: none" id="btn-modal"></button>
 @endsection

@@ -15,7 +15,7 @@ class CreateSintegrasTable extends Migration
         Schema::create('sintegras', function (Blueprint $table) {
             $table->increments('id');
             $table->string('cnpj', 20);
-            $table->string('resultado_json');
+            $table->text('resultado_json');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

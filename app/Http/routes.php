@@ -12,7 +12,7 @@
 */
 //root route
 Route::get('/', function () {
-   return redirect()->route('app.sintegra.index');
+    return redirect()->route('app.sintegra.index');
 });
 
 //Authenticate route
@@ -23,8 +23,10 @@ Route::post('/login', array('as' => 'login.post', 'uses' => 'Auth\AuthController
 Route::group(array('prefix' => 'app', 'middleware' => 'auth.checkauth', 'as' => 'app.'), function () {
     Route::group(array('prefix' => 'sintegra', 'as' => 'sintegra.'), function () {
         Route::get('/', array('as' => 'index', 'uses' => 'SintegraController@index'));
-        Route::get('/consulta', array('as' => 'consulta', 'uses' => 'SintegraController@consulta'));
-        Route::post('/store', array('as' => 'store', 'uses' => 'SintegraController@store'));
-        Route::post('/sintegra-request', array('as' => 'sintegrarequest', 'uses' => 'SintegraController@sintegraRequest'));
+        Route::get('get/{id}', array('as' => 'get', 'uses' => 'SintegraController@get'));
+        Route::get('delete/{id}', array('as' => 'delete', 'uses' => 'SintegraController@delete'));
+        Route::get('consulta', array('as' => 'consulta', 'uses' => 'SintegraController@consulta'));
+        Route::post('store', array('as' => 'store', 'uses' => 'SintegraController@store'));
+        Route::post('sintegra-request', array('as' => 'sintegrarequest', 'uses' => 'SintegraController@sintegraRequest'));
     });
 });
