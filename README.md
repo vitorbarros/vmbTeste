@@ -54,11 +54,7 @@
       
   O retorno deverá ser:
   
-  {
-    "access_token": "9z9cFIp2DtK8g8kKmeoYRIX4yxkxbSA5t8SGk1eI",
-    "token_type": "Bearer",
-    "expires_in": 3600
-  }
+  `{"access_token": "9z9cFIp2DtK8g8kKmeoYRIX4yxkxbSA5t8SGk1eI","token_type": "Bearer","expires_in": 3600}`
   
 ### 2 - Consulta no sintegra
   
