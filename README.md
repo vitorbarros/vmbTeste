@@ -42,7 +42,7 @@
 
   1 - Autenticação
   
-    1 - faça uma requisição do tipo POST para a seguinte rota localhost:8000/oauth/access_token com os seguintes parametros no header 'grant_type = password', 'client_id = appid01', 'client_secret = secret', 'username = admin', 'password = admin'.
+    1 - faça uma requisição do tipo POST para a seguinte rota localhost:8000/oauth/access_token com os seguintes parametros no header grant_type = password, client_id = appid01, client_secret = secret, username = admin, password = admin.
     O retorno deverá ser:
     
   {
