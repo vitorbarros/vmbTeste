@@ -2,8 +2,8 @@ $colorDefault: #f3f0f4;
 $borderColor: #DEE3E6;
 $fontColor: #524f5e;
 
-.header{
-  .navbar-default{
+.header {
+  .navbar-default {
     background-color: $colorDefault;
     border-color: $borderColor;
   }
@@ -19,10 +19,10 @@ $fontColor: #524f5e;
   .form {
     display: block;
     padding: 15px;
-    label{
+    label {
       color: #524f5e;
     }
-    .btn-primary{
+    .btn-primary {
       background-color: $colorDefault;
       color: $fontColor;
       border: 1px solid $borderColor;
@@ -41,8 +41,8 @@ $fontColor: #524f5e;
   }
 }
 
-.sintegra{
-  .container-sintegra{
+.sintegra {
+  .container-sintegra {
     border: 1px solid $borderColor;
     max-width: 1000px;
     margin: 0 auto;
@@ -60,27 +60,27 @@ $fontColor: #524f5e;
         font-size: 20px;
       }
     }
-    .table{
+    .table {
       padding: 15px;
       margin: 0;
-      table{
+      table {
         tbody,
-        thead{
-          tr{
+        thead {
+          tr {
             td,
-            th{
+            th {
               color: $fontColor;
             }
           }
         }
       }
     }
-    .pagination{
+    .pagination {
       margin: 10px 0 10px 0;
       padding: 0 15px 0 15px;
     }
-    .btn-consulta{
-      a{
+    .btn-consulta {
+      a {
         float: right;
         margin: 10px 15px 0 0;
       }
@@ -88,10 +88,10 @@ $fontColor: #524f5e;
     .form {
       display: block;
       padding: 15px;
-      label{
+      label {
         color: #524f5e;
       }
-      .btn-primary{
+      .btn-primary {
         background-color: $colorDefault;
         color: $fontColor;
         border: 1px solid $borderColor;
@@ -99,53 +99,94 @@ $fontColor: #524f5e;
     }
   }
 }
+.resultado {
+  margin: 0 auto;
+  border: 0px solid #000000;
+  width: 610px;
+  td {
+    .observacao {
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      padding: 3px 1px 3px 1px;
+    }
+    .secao {
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      padding: 3px 1px 3px 1px;
+      text-decoration: underline;
+    }
+    .cadastro {
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      padding: 2px 3px 2px 3px;
+    }
+    .valor {
+      background-color: #FAFAE4;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      padding: 2px 3px 2px 3px;
+    }
+    .titulo {
+      background-color: #f1f1b1;
+      font-weight: bold;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      height: 20px;
+    }
+  }
+}
+
+.modal-dialog {
+  width: 700px;
+}
+
 @media(max-width: 767px) {
   .sintegra {
     .container-sintegra {
-      .table{
+      .table {
         padding: 5px;
-        table{
+        table {
           display: block;
-          thead{
+          thead {
             display: block;
-            tr{
+            tr {
               position: absolute;
               top: -9999px;
               left: -9999px;
             }
           }
-          tbody{
+          tbody {
             display: block;
           }
-          th{
+          th {
             display: block;
           }
-          td{
+          td {
             display: block;
-            &:nth-of-type(1):before{
+            &:nth-of-type(1):before {
               content: "ID:";
             }
-            &:nth-of-type(2){
-              &:before{
+            &:nth-of-type(2) {
+              &:before {
                 content: "CNPJ:";
               }
             }
-            &:nth-of-type(3){
-              &:before{
+            &:nth-of-type(3) {
+              &:before {
                 content: "Usuário:";
               }
             }
-            &:nth-of-type(4){
-              &:before{
+            &:nth-of-type(4) {
+              &:before {
                 content: "Data da consulta:";
               }
             }
-            &:nth-of-type(5){
-              &:before{
+            &:nth-of-type(5) {
+              &:before {
                 content: "Ação:";
               }
             }
-            &:before{
+            &:before {
               width: 45%;
               padding-right: 10px;
               white-space: nowrap;
@@ -153,16 +194,16 @@ $fontColor: #524f5e;
               font-weight: bold;
             }
           }
-          tr{
+          tr {
             display: block;
           }
         }
       }
-      .pagination{
+      .pagination {
         padding: 0 5px 0 5px;
       }
-      .btn-consulta{
-        a{
+      .btn-consulta {
+        a {
           margin: 10px 5px 0 0;
         }
       }
