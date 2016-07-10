@@ -26,7 +26,16 @@ Route::group(array('prefix' => 'app', 'middleware' => 'auth.checkauth', 'as' => 
         Route::get('get/{id}', array('as' => 'get', 'uses' => 'SintegraController@get'));
         Route::get('delete/{id}', array('as' => 'delete', 'uses' => 'SintegraController@delete'));
         Route::get('consulta', array('as' => 'consulta', 'uses' => 'SintegraController@consulta'));
-        Route::post('store', array('as' => 'store', 'uses' => 'SintegraController@store'));
-        Route::post('sintegra-request', array('as' => 'sintegrarequest', 'uses' => 'SintegraController@sintegraRequest'));
+        Route::post('store', array('as' => 'store', 'middleware' => 'csrf', 'uses' => 'SintegraController@store'));
+        Route::post('sintegra-request', array('as' => 'sintegrarequest', 'middleware' => 'csrf', 'uses' => 'SintegraController@sintegraRequest'));
     });
+});
+
+//API routes
+Route::post('oauth/access_token', function () {
+    return Response::json(Authorizer::issueAccessToken());
+});
+
+Route::group(array('prefix' => 'api', 'middleware' => 'oauth', 'as' => 'api.'), function () {
+    Route::resource('sintegra', 'Api\Sintegra\SintegraController', array('except' => array('create', 'edit')));
 });

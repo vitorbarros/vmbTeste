@@ -7,6 +7,8 @@ $(document).ready(function () {
     while ((mApp = reApp.exec(urlApp)) !== null) {
         $("#" + mApp).attr('class', 'active');
     }
+
+    $("#cnpj").mask("00.000.000-0000-00");
 });
 
 function auth() {
