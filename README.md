@@ -40,7 +40,8 @@
   
 ## API
 ### 1 - Autenticação
-    Faça uma requisição do tipo POST para a seguinte rota localhost:8000/oauth/access_token com os seguintes parâmetros.
+
+  Faça uma requisição do tipo PSOT para `localhost:8000/oauth/access_token` com os seguintes parâmetros:
     
       grant_type = password
       
