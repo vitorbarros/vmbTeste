@@ -40,7 +40,7 @@
   
 ## API
   1 - Autenticação
-    Faça uma requisição do tipo POST para a seguinte rota localhost:8000/oauth/access_token com os seguintes parametros.
+    Faça uma requisição do tipo POST para a seguinte rota localhost:8000/oauth/access_token com os seguintes parâmetros.
     
       grant_type = password
       
@@ -59,3 +59,31 @@
     "token_type": "Bearer",
     "expires_in": 3600
   }
+  
+  2 - Consulta no sintegra
+  
+  Faça uma requisição do tipo POST para localhost:8000/api/sintegra com os seguintes parâmetros:
+  
+  cnpj = cnpj para consulta
+  
+  Authorization = Bearer access_token
+  
+  2 - Retornar todas as consultas
+  
+  Faça uma requisição do tipo GET para localhost:8000/api/sintegra com os seguintes parâmetros:
+  
+  Authorization = Bearer access_token
+  
+  3 - Retornar consulta por ID
+  
+  Faça uma requisição do tipo GET para localhost:8000/api/sintegra/{id} com os seguintes parâmetros:
+  
+  Authorization = Bearer access_token
+  
+  
+  
+  
+  
+  
+  
+  
