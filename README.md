@@ -19,7 +19,7 @@
 
   1 - Clone o repositório em sua máquina ou baixe os arquivos
   
-  2 - Abra o terminal, navegue até a pasta do projeto e execute o seguinte comando: `composer install`.
+  2 - Abra o terminal, navegue até a pasta do projeto e execute o seguinte comando: `composer install`. Caso o arquivo .env não esteja no projeto, renomeie o arquivo `.env.exemple` para `.env` e execute seguinte comando `php artisan key:generate`
   
   3 - Acesse os arquivos .env, config/database.php e faça as configurações do banco de dados de acordo com suas credenciais de acesso
   
