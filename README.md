@@ -7,6 +7,7 @@
   
   composer
   
+## Requisitos para alterações nos arquivos de CSS e JS
   gulp
   
   sass
@@ -30,7 +31,7 @@
   6 - Abra o terminal e exefute o seguinte comando na raiz do projeto `php artisan serve`.
   
   7 - Caso seja necessário fazer alterações nos arquivos de CSS e JS será necessário ter instalado em sua máquina os seguintes
-  pacotes 'nodejs', 'npm', 'sass', 'gulp'. Na raiz do projeto exeute o seguinte comando `npm install`. Após a instalação execute o seguinte comando `gulp watch`. Após a execução desse comando acesse os arquivos em resources/assets/sass/src e edite os arquivos desejados.
+  pacotes `'nodejs', 'npm', 'sass', 'gulp'`. Na raiz do projeto exeute o seguinte comando `npm install`. Após a instalação execute o seguinte comando `gulp watch`. Após a execução desse comando acesse os arquivos em `resources/assets/sass/src` e edite os arquivos desejados.
   
 ## Acesso ao sistema
 
