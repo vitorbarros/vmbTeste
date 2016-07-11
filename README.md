@@ -38,7 +38,7 @@
   
   2 - Faça o acesso com o nome de usuário 'admin', e senha 'admin'.
   
-## API
+## API para terceiros
 ### 1 - Autenticação
 
   Faça uma requisição do tipo PSOT para `localhost:8000/oauth/access_token` com os seguintes parâmetros:
